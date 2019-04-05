@@ -34,7 +34,10 @@ export default {
     },
     type: {
       type: String,
-      default: 'info'
+      default: 'info',
+      validator: function(value) {
+        return ['success', 'warning', 'error', 'info'].indexOf(value) !== -1
+      }
     },
     showIcon: {
       type: Boolean,
