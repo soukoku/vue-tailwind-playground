@@ -64,13 +64,13 @@ export default {
   computed: {
     cssClass() {
       if (this.type === 'warning') {
-        return 'bg-orange-100 border-orange-500 text-orange-700'
+        return 'bg-yellow-100 border-yellow-700 text-yellow-800'
       } else if (this.type === 'error') {
-        return 'bg-red-100 border-red-500 text-red-700'
+        return 'bg-red-100 border-red-700 text-red-700'
       } else if (this.type === 'success') {
-        return 'bg-green-100 border-green-500 text-green-700'
+        return 'bg-green-100 border-green-700 text-green-700'
       }
-      return 'bg-gray-100 border-gray-500 text-gray-700'
+      return 'bg-gray-100 border-gray-700 text-gray-700'
     },
     iconClass() {
       if (this.type === 'warning') {

@@ -57,7 +57,7 @@ export default {
           this.color === 'primary' && !this.plain,
         'border-green-500 bg-green-600 hover:bg-green-700 text-green-100':
           this.color === 'success' && !this.plain,
-        'border-orange-500 bg-orange-600 hover:bg-orange-700 text-orange-100':
+        'border-yellow-500 bg-yellow-700 hover:bg-yellow-800 text-yellow-100':
           this.color === 'warning' && !this.plain,
         'border-red-500 bg-red-600 hover:bg-red-700 text-red-100':
           this.color === 'danger' && !this.plain,
@@ -70,7 +70,7 @@ export default {
           this.color === 'primary' && this.plain,
         'border-green-500 bg-green-100 hover:bg-green-500 hover:text-white text-green-700':
           this.color === 'success' && this.plain,
-        'border-orange-500 bg-orange-100 hover:bg-orange-500 hover:text-white text-orange-700':
+        'border-yellow-500 bg-yellow-100 hover:bg-yellow-600 hover:text-white text-yellow-800':
           this.color === 'warning' && this.plain,
         'border-red-500 bg-red-100 hover:bg-red-500 hover:text-white text-red-700':
           this.color === 'danger' && this.plain,
