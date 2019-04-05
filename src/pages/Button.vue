@@ -37,7 +37,7 @@
       <base-button rounded size="lg">D</base-button>
     </div>
     <div class="btn-group mt-2">
-      <base-button @click="testBtn">Button</base-button>
+      <base-button @click="testBtn"><i class="fas fa-save mr-1"></i> Click Me</base-button>
       <base-button>Button</base-button>
       <base-button>Button</base-button>
       <base-button>Button</base-button>

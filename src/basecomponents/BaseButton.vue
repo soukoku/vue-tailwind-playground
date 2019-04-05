@@ -1,6 +1,5 @@
 <template>
   <button
-    class="b-btn flex self-center"
     :class="allClass"
     :disabled="disabled"
     :type="type"
@@ -19,7 +18,7 @@ export default {
       default: 'none',
       validator: function(value) {
         return (
-          ['none', 'success', 'warning', 'danger', 'info', 'primary'].indexOf(
+          ['none', 'transparent', 'success', 'warning', 'danger', 'info', 'primary'].indexOf(
             value
           ) !== -1
         )
@@ -43,7 +42,8 @@ export default {
   computed: {
     allClass() {
       return {
-        border: true,
+        // defaults
+        'b-btn flex self-center items-center border': true,
         // sizes
         'py-1 px-2 text-xs': this.size === 'xs',
         'py-1 px-3 text-sm': this.size === 'sm',
