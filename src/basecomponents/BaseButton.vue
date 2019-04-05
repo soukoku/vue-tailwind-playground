@@ -21,7 +21,10 @@ export default {
     },
     type: {
       type: String,
-      default: 'button'
+      default: 'button',
+      validator: function(value) {
+        return ['button', 'submit', 'reset', 'anchor'].indexOf(value) !== -1
+      }
     },
     fill: {
       type: String,
