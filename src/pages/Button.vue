@@ -1,34 +1,37 @@
 <template>
   <div>
     <div class="flex">
-      <base-button color="none">Button</base-button>
-      <base-button color="primary">Button</base-button>
-      <base-button color="success">Button</base-button>
-      <base-button color="warning">Button</base-button>
-      <base-button color="danger">Button</base-button>
-      <base-button color="info">Button</base-button>
+      <base-button color="transparent">transparent</base-button>
+      <base-button color="none">none</base-button>
+      <base-button color="primary">primary</base-button>
+      <base-button color="success">success</base-button>
+      <base-button color="warning">warning</base-button>
+      <base-button color="danger">danger</base-button>
+      <base-button color="info">info</base-button>
     </div>
     <div class="flex mt-2">
-      <base-button plain color="none">Button</base-button>
-      <base-button plain color="primary">Button</base-button>
-      <base-button plain color="success">Button</base-button>
-      <base-button plain color="warning">Button</base-button>
-      <base-button plain color="danger">Button</base-button>
-      <base-button plain color="info">Button</base-button>
+      <base-button plain color="transparent">transparent</base-button>
+      <base-button plain color="none">none</base-button>
+      <base-button plain color="primary">primary</base-button>
+      <base-button plain color="success">success</base-button>
+      <base-button plain color="warning">warning</base-button>
+      <base-button plain color="danger">danger</base-button>
+      <base-button plain color="info">info</base-button>
     </div>
     <div class="flex mt-2">
-      <base-button disabled color="none">Button</base-button>
-      <base-button disabled color="primary">Button</base-button>
-      <base-button disabled color="success">Button</base-button>
-      <base-button disabled color="warning">Button</base-button>
-      <base-button disabled color="danger">Button</base-button>
-      <base-button disabled color="info">Button</base-button>
+      <base-button disabled color="transparent">transparent</base-button>
+      <base-button disabled color="none">none</base-button>
+      <base-button disabled color="primary">primary</base-button>
+      <base-button disabled color="success">success</base-button>
+      <base-button disabled color="warning">warning</base-button>
+      <base-button disabled color="danger">danger</base-button>
+      <base-button disabled color="info">info</base-button>
     </div>
     <div class="flex mt-2">
-      <base-button size="xs">Button</base-button>
-      <base-button size="sm">Button</base-button>
-      <base-button size="md">Button</base-button>
-      <base-button size="lg">Button</base-button>
+      <base-button size="xs">xs</base-button>
+      <base-button size="sm">sm</base-button>
+      <base-button size="md">md</base-button>
+      <base-button size="lg">lg</base-button>
     </div>
     <div class="flex mt-2">
       <base-button rounded size="xs">A</base-button>

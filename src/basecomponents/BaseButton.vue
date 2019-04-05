@@ -62,6 +62,7 @@ export default {
         'border-red-500 bg-red-600 hover:bg-red-700 text-red-100':
           this.color === 'danger' && !this.plain,
         'border-gray-500 bg-gray-100 hover:bg-gray-300': this.color === 'none',
+        'border-transparent hover:bg-gray-200': this.color === 'transparent',
 
         // plains
         'border-gray-600 bg-gray-100 hover:bg-gray-500 hover:text-white text-gray-700':
@@ -96,6 +97,9 @@ export default {
   padding-left: .7em!important;
   padding-right: .7em!important;
 } */
+.b-btn {
+  transition: background-color .2s;
+}
 .b-btn + .b-btn {
   @apply ml-2;
 }
