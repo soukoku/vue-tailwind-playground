@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@/assets/css/tailwind.css'
-import '@/registerbase'
+import '@/registerTW'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
