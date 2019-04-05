@@ -6,14 +6,9 @@ export default {
       default: 'none',
       validator: function(value) {
         return (
-          [
-            'none',
-            'success',
-            'warning',
-            'danger',
-            'info',
-            'primary'
-          ].indexOf(value) !== -1
+          ['none', 'success', 'warning', 'danger', 'info', 'primary'].indexOf(
+            value
+          ) !== -1
         )
       }
     },
@@ -89,6 +84,13 @@ export default {
         'opacity-75 cursor-not-allowed': this.disabled
       }
     },
+    allAttrs() {
+      return {
+        ...this.$attrs,
+        disabled: this.disabled,
+        type: this.isAnchor ? undefined : this.type
+      }
+    },
     isAnchor() {
       return this.type === 'anchor'
     }
@@ -104,11 +106,7 @@ export default {
       this.isAnchor ? 'a' : 'button',
       {
         class: this.allClass,
-        attrs: {
-          ...this.$attrs,
-          disabled: this.disabled,
-          type: this.isAnchor ? undefined : this.type
-        },
+        attrs: this.allAttrs,
         on: this.$listeners,
         ref: 'btn'
       },
