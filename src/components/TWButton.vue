@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'tw-button',
   props: {
     color: {
       type: String,
@@ -40,10 +41,10 @@ export default {
     allClass() {
       return {
         // defaults
-        'b-btn flex self-center items-center border font-semibold': true,
+        'tw-btn flex self-center items-center border': true,
         // sizes
         'py-1 px-2 text-xs': this.size === 'xs',
-        'py-1 px-3 text-sm': this.size === 'sm',
+        'py-1 px-4 text-sm': this.size === 'sm',
         'py-2 px-6': this.size === 'md',
         'py-3 px-6 text-lg': this.size === 'lg',
         // full
@@ -57,7 +58,8 @@ export default {
           this.color === 'warning' && this.fill === 'full',
         'border-red-500 bg-red-600 hover:bg-red-700 text-red-100':
           this.color === 'danger' && this.fill === 'full',
-        'border-gray-500 bg-gray-100 hover:bg-gray-300': this.color === 'none',
+        'border-gray-400 bg-white hover:bg-gray-300 text-gray-700':
+          this.color === 'none',
         // plain
         'border-gray-600 bg-gray-100 hover:bg-gray-700 hover:text-gray-100 text-gray-700':
           this.color === 'info' && this.fill === 'plain',
@@ -119,26 +121,26 @@ export default {
 }
 </script>
 <style>
-/* .b-btn.rounded {
+/* .tw-btn.rounded {
   padding-left: .7em!important;
   padding-right: .7em!important;
 } */
-.b-btn {
+.tw-btn {
   transition: background-color 0.2s;
 }
-.b-btn + .b-btn {
+.tw-btn + .tw-btn {
   @apply ml-2;
 }
-.btn-group {
+.tw-btn-group {
   @apply flex;
 }
-.btn-group > .b-btn + .b-btn {
+.tw-btn-group > .tw-btn + .tw-btn {
   @apply m-0 border-l-0 rounded-none;
 }
-.btn-group > .b-btn:first-child {
+.tw-btn-group > .tw-btn:first-child {
   @apply rounded-r-none;
 }
-.btn-group > .b-btn:last-child {
+.tw-btn-group > .tw-btn:last-child {
   @apply rounded-r-sm;
 }
 </style>
