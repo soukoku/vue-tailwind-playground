@@ -22,6 +22,7 @@
       </p>
     </div>
     <button
+      type="button"
       class="self-start"
       @click="closed = true"
       title="Close alert."
