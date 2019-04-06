@@ -1,8 +1,3 @@
-<template>
-  <input :class="allClass" v-bind="$attrs" v-on="otherListners"
-  :value="value" @input="$emit('input', $event.target.value)"></input>
-</template>
-
 <script>
 export default {
   name: 'tw-input',
@@ -10,28 +5,90 @@ export default {
     value: {
       type: [String, Number]
     },
+    type: {
+      type: String,
+      default: 'text'
+    },
     size: {
       type: String,
       default: 'md',
       validator: function(value) {
-        return ['xs', 'sm', 'md', 'lg'].indexOf(value) !== -1
+        return ['xs', 'sm', 'md', 'lg', 'custom'].indexOf(value) !== -1
       }
+    },
+    disabled: Boolean
+  },
+  data() {
+    return {
+      valueReal: ''
+    }
+  },
+  watch: {
+    value: {
+      handler(v) {
+        this.valueReal = v ? v.toString() : ''
+      },
+      immediate: true
     }
   },
   computed: {
     allClass() {
-      return {
+      const cls = {
         'tw-input border border-gray-300 text-gray-700 hover:border-gray-500 focus:border-blue-500 focus:outline-none rounded-sm': true,
         'py-1 px-1 text-xs': this.size === 'xs',
         'py-1 px-1 text-sm': this.size === 'sm',
         'py-1 px-2': this.size === 'md',
         'py-2 px-2 text-lg': this.size === 'lg'
       }
+      return cls
     },
-    otherListners() {
-      const { input, ...others } = this.$listeners
-      return others
+    allListners() {
+      return {
+        ...this.$listeners,
+        input: e => this.tryChangeAndEmit('input', e.target.value),
+        change: e => this.tryChangeAndEmit('change', e.target.value, true)
+        // blur: e => {
+        //   this.tryChangeAndEmit('change', e.target.value, true)
+        //   this.$emit('blur', e)
+        // }
+      }
+    },
+    allAttrs() {
+      return {
+        ...this.$attrs,
+        disabled: this.disabled,
+        type: this.isTextArea ? undefined : this.type,
+        value: this.valueReal
+      }
+    },
+    isTextArea() {
+      return this.type === 'textarea'
     }
+  },
+  methods: {
+    tryChangeAndEmit(evtName, val, validate) {
+      console.log(`testing evt ${evtName} on value ${val}`)
+      this.valueReal = val
+      if (validate && this.type === 'number') {
+        const test = +val
+        if (isNaN(test)) {
+          // keep original
+          this.valueReal = this.value
+        }
+      }
+      this.$emit(evtName, this.valueReal)
+    }
+  },
+  render(h) {
+    return h(
+      this.isTextArea ? 'textarea' : 'input',
+      {
+        class: this.allClass,
+        attrs: this.allAttrs,
+        on: this.allListners
+      },
+      this.$slots.default
+    )
   }
 }
 </script>
