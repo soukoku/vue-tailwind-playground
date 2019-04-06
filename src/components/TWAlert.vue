@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-l-4 p-2 text-sm flex"
+    class="border-l-4 p-2 pb-3 text-sm flex"
     :class="cssClass"
     role="alert"
     v-if="!closed"
@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  name: 'tw-alert',
   props: {
     title: {
       type: String
@@ -54,11 +55,11 @@ export default {
     }
   },
   watch: {
-    message() {
-      this.closed = false
-    },
-    title() {
-      this.closed = false
+    message: {
+      immediate: true,
+      handler(val) {
+        this.closed = !val // && !this.title
+      }
     }
   },
   computed: {
