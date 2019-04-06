@@ -15,6 +15,11 @@ const router = new VueRouter({
       component: () => import('@/pages/Alert.vue')
     },
     {
+      name: 'Busy',
+      path: '/busy',
+      component: () => import('@/pages/Busy.vue')
+    },
+    {
       name: 'Button',
       path: '/button',
       component: () => import('@/pages/Button.vue')
