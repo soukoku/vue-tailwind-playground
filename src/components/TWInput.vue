@@ -38,7 +38,8 @@ export default {
         'py-1 px-1 text-xs': this.size === 'xs',
         'py-1 px-1 text-sm': this.size === 'sm',
         'py-1 px-2': this.size === 'md',
-        'py-2 px-2 text-lg': this.size === 'lg'
+        'py-2 px-2 text-lg': this.size === 'lg',
+        'bg-gray-200': this.disabled
       }
       return cls
     },
