@@ -57,10 +57,10 @@ export default {
     allClass() {
       const cls = {
         'tw-input block appearance-none border border-gray-300 text-gray-700 hover:border-gray-500 focus:border-blue-500 focus:outline-none rounded-sm': true,
-        'py-1 pl-1 pr-6 text-xs': this.size === 'xs',
-        'py-1 pl-1 pr-6 text-sm': this.size === 'sm',
-        'py-1 pl-2 pr-8': this.size === 'md',
-        'py-2 pl-2 pr-10 text-lg': this.size === 'lg',
+        'py-1 pl-2 pr-6 text-xs': this.size === 'xs',
+        'py-1 pl-2 pr-6 text-sm': this.size === 'sm',
+        'py-1 pl-3 pr-8': this.size === 'md',
+        'py-2 pl-4 pr-10 text-lg': this.size === 'lg',
         'bg-gray-200': this.disabled
       }
       return cls

@@ -35,10 +35,10 @@ export default {
     allClass() {
       const cls = {
         'tw-input border border-gray-300 text-gray-700 hover:border-gray-500 focus:border-blue-500 focus:outline-none rounded-sm': true,
-        'py-1 px-1 text-xs': this.size === 'xs',
-        'py-1 px-1 text-sm': this.size === 'sm',
-        'py-1 px-2': this.size === 'md',
-        'py-2 px-2 text-lg': this.size === 'lg',
+        'py-1 px-2 text-xs': this.size === 'xs',
+        'py-1 px-2 text-sm': this.size === 'sm',
+        'py-1 px-3': this.size === 'md',
+        'py-2 px-4 text-lg': this.size === 'lg',
         'bg-gray-200': this.disabled
       }
       return cls
