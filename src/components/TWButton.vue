@@ -35,7 +35,9 @@ export default {
       }
     },
     rounded: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    shadow: Boolean,
+    border: { type: Boolean, default: true }
   },
   computed: {
     fillFull() {
@@ -50,7 +52,10 @@ export default {
     allClass() {
       const cls = {
         // defaults
-        'tw-btn flex self-center items-center border': true,
+        'tw-btn flex self-center items-center': true,
+        border: this.border && this.fill !== 'none',
+        'shadow hover:shadow-md active:shadow-md focus:shadow-md':
+          this.shadow && !(this.disabled || this.fill === 'none'),
         // sizes
         'py-1 px-2 text-xs': this.size === 'xs',
         'py-1 px-4 text-sm': this.size === 'sm',
