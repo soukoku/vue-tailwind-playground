@@ -6,27 +6,25 @@
       Toggle disabled
     </label>
     <br />
-    <tw-radio type="radio" id="one" value="One" v-model="picked" :disabled="disabled" />
-    <label for="one">One</label>
-    <br />
-    <tw-radio type="radio" id="two" value="Two" v-model="picked" :disabled="disabled" />
-    <label for="two">Two</label>
-
-    <!--
     <tw-radio
+      type="radio"
       id="one"
-      value="First"
+      value="One"
       v-model="picked"
       :disabled="disabled"
-    ></tw-radio>
-    <label for="one">
-      For label
-    </label>
+    />
+    <label for="one">One</label>
     <br />
     <label>
-      <tw-radio value="Second" :disabled="disabled" v-model="picked"></tw-radio>
-      Wrapped label
-    </label> -->
+      <tw-radio
+        type="radio"
+        value="Two"
+        v-model="picked"
+        :disabled="disabled"
+      />
+      Two</label
+    >
+    
     <br />
     <span>Picked: {{ picked }}</span>
   </div>
