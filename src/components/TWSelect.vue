@@ -70,3 +70,8 @@ export default {
   methods: {}
 }
 </script>
+<style>
+.tw-input::-ms-expand {
+  display: none;
+}
+</style>
