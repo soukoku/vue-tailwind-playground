@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  name: 'tw-switch',
   inheritAttrs: false,
   model: {
     prop: 'checked',
@@ -58,7 +59,7 @@ export default {
     }
   },
   methods: {
-    doToggle(e) {
+    doToggle() {
       if (!this.disabled) {
         this.checkedReal = !this.checkedReal
       }

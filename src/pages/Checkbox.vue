@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <label>
@@ -6,18 +7,24 @@
     </label>
     <br />
 
-    <tw-switch v-model="checked" :disabled="disabled"></tw-switch>
+    <tw-checkbox v-model="checked" :disabled="disabled"></tw-checkbox>
     <br />
 
-    <tw-switch id="switch" v-model="checked" :disabled="disabled"></tw-switch>
+    <tw-checkbox
+      id="switch"
+      v-model="checked"
+      :disabled="disabled"
+    ></tw-checkbox>
     <label for="switch">
       For label
     </label>
     <br />
     <label>
-      <tw-switch :checked="checked" :disabled="disabled"></tw-switch>
+      <tw-checkbox :checked="checked" :disabled="disabled"></tw-checkbox>
       Wrapped label
     </label>
+    <br />
+    <tw-checkbox indeterminate :disabled="disabled"></tw-checkbox>
   </div>
 </template>
 
