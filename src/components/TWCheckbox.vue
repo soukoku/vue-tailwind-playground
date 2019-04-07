@@ -3,9 +3,10 @@
     :class="{
       'text-blue-600': (checkedReal || indeterReal) && !this.disabled,
       'text-gray-600': !checkedReal || this.disabled,
-      'opacity-50': disabled
+      'opacity-50 cursor-not-allowed': disabled,
+      'cursor-pointer': !disabled
     }"
-    class="inline-flex cursor-pointer"
+    class="inline-flex"
     @keydown.space="doToggle"
     @click.prevent="doToggle"
     :tabindex="disabled ? -1 : 0"

@@ -3,7 +3,8 @@
     :class="{
       'border-blue-600 bg-blue-600': checkedReal,
       'border-gray-400': !checkedReal,
-      'opacity-50': disabled
+      'opacity-50 cursor-not-allowed': disabled,
+      'cursor-pointer': !disabled
     }"
     class="inline-flex rounded-full border bg-gray-400 cursor-pointer w-10"
     @keydown.space="doToggle"
