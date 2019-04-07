@@ -4,10 +4,12 @@
     v-if="isBusyReal"
   >
     <div class="absolute left-0 top-0 w-full h-full opacity-75 bg-gray-100 "></div>
+    <!-- border is needed for correct svg center rotate in lame IE -->
     <svg
       :width="size"
       :height="size"
       viewBox="0 0 60 60"
+      class="border border-transparent"
       :class="{ rot360: indeterminate }"
     >
       <circle
@@ -65,7 +67,7 @@ export default {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  /* transform-origin: 50% 50%; */
+  transform-origin: 50% 50%;
 }
 @keyframes ckw {
   0% {
