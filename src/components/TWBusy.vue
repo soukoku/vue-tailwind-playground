@@ -3,7 +3,7 @@
     class="flex items-center justify-center text-gray-600 absolute top-0 left-0 right-0 bottom-0 select-none"
     v-if="isBusyReal"
   >
-    <div class="absolute w-full h-full opacity-75 bg-gray-100 "></div>
+    <div class="absolute left-0 top-0 w-full h-full opacity-75 bg-gray-100 "></div>
     <svg
       :width="size"
       :height="size"
@@ -65,7 +65,7 @@ export default {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  transform-origin: 50% 50%;
+  /* transform-origin: 50% 50%; */
 }
 @keyframes ckw {
   0% {
