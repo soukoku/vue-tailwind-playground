@@ -67,10 +67,10 @@
       >
     </div>
     <div class="flex mt-2">
-      <tw-button :disabled="disabled" rounded size="xs">A</tw-button>
-      <tw-button :disabled="disabled" rounded size="sm">B</tw-button>
-      <tw-button :disabled="disabled" rounded size="md">C</tw-button>
-      <tw-button :disabled="disabled" rounded size="lg">D</tw-button>
+      <tw-button :disabled="disabled" rounded size="xs">Rounded</tw-button>
+      <tw-button :disabled="disabled" rounded size="sm">Rounded</tw-button>
+      <tw-button :disabled="disabled" rounded size="md">Rounded</tw-button>
+      <tw-button :disabled="disabled" rounded size="lg">Rounded</tw-button>
     </div>
     <div class="tw-btn-group mt-2">
       <tw-button :disabled="disabled" @click="testBtn">Click Me</tw-button>
