@@ -1,8 +1,8 @@
 <template>
   <span
     :class="{
-      'text-blue-600': (checkedReal || indeterReal) && !this.disabled,
-      'text-gray-600': !checkedReal || this.disabled,
+      'text-blue-600': (isChecked || indeterReal) && !this.disabled,
+      'text-gray-600': !isChecked || this.disabled,
       'opacity-50 cursor-not-allowed': disabled,
       'cursor-pointer': !disabled
     }"
@@ -11,7 +11,7 @@
     @click.prevent="doToggle"
     :tabindex="disabled ? -1 : 0"
     role="checkbox"
-    :aria-checked="checkedReal ? 'true' : 'false'"
+    :aria-checked="isChecked ? 'true' : 'false'"
   >
     <input type="checkbox" class="hidden" v-bind="allAttrs" />
     <svg
@@ -22,12 +22,12 @@
     >
       <path
         class="tw-check-icon opacity-0"
-        :class="{ 'opacity-100': !checkedReal }"
+        :class="{ 'opacity-100': !isChecked }"
         d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
       />
       <path
         class="tw-check-icon opacity-0"
-        :class="{ 'opacity-100': checkedReal }"
+        :class="{ 'opacity-100': isChecked }"
         d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
       />
 
@@ -52,7 +52,14 @@ export default {
     event: 'change'
   },
   props: {
-    checked: Boolean,
+    checked: {}, // could be a complex value despite name
+    value: {},
+    trueValue: {
+      default: true
+    },
+    falseValue: {
+      default: false
+    },
     indeterminate: Boolean,
     disabled: Boolean
   },
@@ -60,6 +67,24 @@ export default {
     return {
       checkedReal: this.checked,
       indeterReal: this.indeterminate
+    }
+  },
+  computed: {
+    allAttrs() {
+      return {
+        ...this.$attrs,
+        value: this.value,
+        trueValue: this.trueValue,
+        falseValue: this.falseValue,
+        disabled: this.disabled,
+        checked: this.isChecked
+      }
+    },
+    isChecked() {
+      if (Array.isArray(this.checkedReal)) {
+        return this.checkedReal.includes(this.value)
+      }
+      return this.checkedReal === this.trueValue
     }
   },
   watch: {
@@ -76,20 +101,19 @@ export default {
       this.$emit('update:indeterminate', val)
     }
   },
-  computed: {
-    allAttrs() {
-      return {
-        ...this.$attrs,
-        disabled: this.disabled,
-        checked: this.checkedReal
-      }
-    }
-  },
   methods: {
     doToggle() {
       if (!this.disabled) {
-        this.checkedReal = !this.checkedReal
         this.indeterReal = false
+        const checked = !this.isChecked
+        if (Array.isArray(this.checkedReal)) {
+          const newVal = [...this.checkedReal]
+          if (checked) newVal.push(this.value)
+          else newVal.splice(newVal.indexOf(this.value), 1)
+          this.checkedReal = newVal
+        } else {
+          this.checkedReal = checked ? this.trueValue : this.falseValue
+        }
       }
     }
   }

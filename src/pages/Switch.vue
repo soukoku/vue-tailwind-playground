@@ -1,7 +1,7 @@
 <template>
   <div>
     <label>
-      <input type="checkbox" v-model="disabled" />
+      <input type="switch" v-model="disabled" />
       Toggle disabled
     </label>
     <br />
@@ -18,6 +18,22 @@
       <tw-switch :checked="checked" :disabled="disabled"></tw-switch>
       Wrapped label
     </label>
+
+    <hr />
+    <label>
+      <tw-switch value="foo" v-model="arrayValue"></tw-switch>
+      Foo
+    </label>
+    <label>
+      <tw-switch value="bar" v-model="arrayValue"></tw-switch>
+      Bar
+    </label>
+    <label>
+      <tw-switch value="baz" v-model="arrayValue"></tw-switch>
+      Baz
+    </label>
+    <br />
+    Checked array: {{ arrayValue }}
   </div>
 </template>
 
@@ -26,7 +42,8 @@ export default {
   data() {
     return {
       disabled: false,
-      checked: false
+      checked: false,
+      arrayValue: []
     }
   }
 }

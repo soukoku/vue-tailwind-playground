@@ -63,7 +63,7 @@ export default {
     }
   },
   methods: {
-    selectMe(e) {
+    selectMe() {
       if (!this.disabled) {
         this.$emit('input', this.value)
       }

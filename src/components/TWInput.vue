@@ -68,7 +68,6 @@ export default {
   },
   methods: {
     tryChangeAndEmit(evtName, val, validate) {
-      console.log(`testing evt ${evtName} on value ${val}`)
       this.valueReal = val
       if (validate && this.type === 'number') {
         const test = +val
