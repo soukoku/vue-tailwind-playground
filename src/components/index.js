@@ -1,5 +1,6 @@
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import './index.css'
 
 const requireComponent = require.context(
   // The relative path from current folder
