@@ -1,5 +1,32 @@
 <template>
   <span
+    v-if="type === 'switch'"
+    :class="{
+      'border-blue-600 bg-blue-600': isChecked,
+      'border-gray-400': !isChecked,
+      'opacity-50 cursor-not-allowed': disabled,
+      'cursor-pointer': !disabled
+    }"
+    class="inline-flex rounded-full border bg-gray-400 cursor-pointer w-10"
+    @keydown.space="doToggle"
+    @click.prevent="doToggle"
+    :tabindex="disabled ? -1 : 0"
+    role="switch"
+    :aria-checked="isChecked ? 'true' : 'false'"
+  >
+    <input type="checkbox" class="hidden" v-bind="allAttrs" />
+    <span
+      :class="{
+        'on border-blue-600': isChecked,
+        'border-gray-400': !isChecked
+      }"
+      class="tw-switch-knob border rounded-full w-4 h-4 bg-white"
+    >
+    </span>
+  </span>
+
+  <span
+    v-else
     :class="{
       'text-blue-600': (isChecked || indeterReal) && !this.disabled,
       'text-gray-600': !isChecked || this.disabled,
@@ -45,7 +72,7 @@
 
 <script>
 export default {
-  name: 'tw-checkbox',
+  name: 'tw-toggle',
   inheritAttrs: false,
   model: {
     prop: 'checked',
@@ -61,7 +88,11 @@ export default {
       default: false
     },
     indeterminate: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    type: {
+      type: String,
+      default: 'checkbox'
+    }
   },
   data() {
     return {
@@ -122,5 +153,11 @@ export default {
 <style>
 .tw-check-icon {
   transition: opacity 0.2s;
+}
+.tw-switch-knob {
+  transition: transform 200ms;
+}
+.tw-switch-knob.on {
+  transform: translateX(140%);
 }
 </style>
