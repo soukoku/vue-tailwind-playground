@@ -1,6 +1,11 @@
 <template>
   <div class="inline-block relative">
-    <select v-on="$listeners" v-bind="allAttrs" :class="allClass">
+    <select
+      v-on="allListeners"
+      v-bind="allAttrs"
+      :class="allClass"
+      ref="select"
+    >
       <slot></slot>
     </select>
     <div
@@ -24,10 +29,12 @@
 export default {
   name: 'tw-select',
   inheritAttrs: false,
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
-    // value: {
-    //   type: [String, Number]
-    // },
+    value: {},
     size: {
       type: String,
       default: 'md',
@@ -38,7 +45,9 @@ export default {
     disabled: Boolean
   },
   data() {
-    return {}
+    return {
+      // valueReal: this.value
+    }
   },
   computed: {
     allAttrs() {
@@ -64,10 +73,29 @@ export default {
         'bg-gray-200': this.disabled
       }
       return cls
+    },
+    allListeners() {
+      return {
+        ...this.$listeners,
+        change: this.handleChange
+      }
     }
   },
-  watch: {},
-  methods: {}
+  watch: {
+    value(val) {
+      if (this.$refs.select) this.$refs.select.value = val
+    }
+  },
+  methods: {
+    handleChange(e) {
+      var val = e.target.value
+      var type = typeof this.value
+      if (type === 'number') {
+        val = +val
+      }
+      this.$emit('change', val)
+    }
+  }
 }
 </script>
 <style>
