@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-l-4 p-2 pb-3 text-sm flex"
+    class="border-l-4 p-2 pb-4 flex"
     :class="cssClass"
     role="alert"
     v-if="!closed"
