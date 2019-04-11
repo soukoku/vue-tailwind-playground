@@ -1,13 +1,12 @@
 <template>
   <span
     v-if="type === 'switch'"
+    class="tw-switch inline-block rounded-full bg-gray-500 cursor-pointer relative"
     :class="{
-      'border-blue-600 bg-blue-600': isChecked,
-      'border-gray-400': !isChecked,
-      'opacity-50 cursor-not-allowed': disabled,
+      'bg-blue-600 on': isChecked,
+      'opacity-50 cursor-not-allowed disabled': disabled,
       'cursor-pointer': !disabled
     }"
-    class="inline-flex rounded-full border bg-gray-400 cursor-pointer w-10"
     @keydown.space="doToggle"
     @click.prevent="doToggle"
     :tabindex="disabled ? -1 : 0"
@@ -15,16 +14,7 @@
     :aria-checked="isChecked ? 'true' : 'false'"
   >
     <input type="checkbox" class="hidden" v-bind="allAttrs" />
-    <span
-      :class="{
-        'on border-blue-600': isChecked,
-        'border-gray-400': !isChecked
-      }"
-      class="tw-switch-knob border rounded-full w-4 h-4 bg-white"
-    >
-    </span>
   </span>
-
   <span
     v-else
     :class="{
@@ -154,10 +144,32 @@ export default {
 .tw-check-icon {
   transition: opacity 0.2s;
 }
-.tw-switch-knob {
-  transition: transform 200ms;
+
+.tw-switch {
+  width: 44px;
+  height: 22px;
+  transition: 0.2s;
 }
-.tw-switch-knob.on {
-  transform: translateX(140%);
+
+.tw-switch:after {
+  @apply rounded-full bg-white absolute;
+  content: '';
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  transition: 0.3s;
+}
+
+.tw-switch.on:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+
+.tw-switch:active:after {
+  width: 60%;
+}
+.tw-switch.disabled:active:after {
+  width: 18px;
 }
 </style>
